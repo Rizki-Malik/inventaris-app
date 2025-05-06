@@ -19,6 +19,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('locations', 'App\Http\Controllers\LocationsController')->except(['show']);
     Route::get('locations/{location:uuid}', 'App\Http\Controllers\LocationsController@show')->name('locations.show');
+
+    Route::resource('items', 'App\Http\Controllers\ItemController')->except(['show']);
+    Route::get('items/{item:uuid}', 'App\Http\Controllers\ItemController@show')->name('items.show');
 });
 
 
