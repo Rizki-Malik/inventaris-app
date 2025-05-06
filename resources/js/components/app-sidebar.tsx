@@ -18,6 +18,11 @@ const mainNavItems: NavItem[] = [
         href: '/categories',
         icon: Folder,
     },
+    {
+        title: 'Lokasi Barang',
+        href: '/locations',
+        icon: Folder,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
