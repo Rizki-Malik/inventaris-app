@@ -192,7 +192,7 @@ export default function Categories({ categories }: { categories: Category[] }) {
                 </div>
 
                 <div className="rounded-md border">
-                    <DataTable columns={columns} data={categories} searchKey="name" />
+                    <DataTable columns={columns} data={categories} searchKey="name" title='List Kategori' />
                 </div>
 
                 {/* Edit Dialog */}
