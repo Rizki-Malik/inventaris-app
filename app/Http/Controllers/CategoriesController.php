@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     {
         $categories = categories::all();
 
-        return view('categories.index', compact('categories'));
+        return Inertia::render('categories.index', compact('categories'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return Inertia::render('categories.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class CategoriesController extends Controller
      */
     public function show(categories $categories)
     {
-        return view('categories.show', compact('categories'));
+        return Inertia::render('categories.show', compact('categories'));
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoriesController extends Controller
      */
     public function edit(categories $categories)
     {
-        return view('categories.edit', compact('categories'));
+        return Inertia::render('categories.edit', compact('categories'));
     }
 
     /**
