@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\locations;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,7 +13,7 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        $locations = locations::all();
+        $locations = Location::all();
 
         return Inertia::render('locations/index', compact('locations'));
     }
@@ -36,7 +36,7 @@ class LocationsController extends Controller
             'description' => 'required|string',
         ]);
 
-        locations::create($request->all());
+        Location::create($request->all());
 
         return redirect()->route('locations.index')->with('success', 'Location created successfully.');
     }
@@ -44,7 +44,7 @@ class LocationsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(locations $locations)
+    public function show(Location $location)
     {
         return Inertia::render('locations/show', compact('locations'));
     }
@@ -52,7 +52,7 @@ class LocationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(locations $locations)
+    public function edit(Location $location)
     {
         return Inertia::render('locations/edit', compact('locations'));
     }
@@ -60,14 +60,14 @@ class LocationsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, locations $locations)
+    public function update(Request $request, Location $location)
     {
         $request->validate([
             'name' => 'required|string|max:100',
             'description' => 'required|string',
         ]);
 
-        $locations->update($request->all());
+        $location->update($request->all());
 
         return redirect()->route('locations.index')->with('success', 'Location updated successfully.');
     }
@@ -75,9 +75,9 @@ class LocationsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(locations $locations)
+    public function destroy(Location $location)
     {
-        $locations->delete();
+        $location->delete();
 
         return redirect()->route('locations.index')->with('success', 'Location deleted successfully.');
     }
