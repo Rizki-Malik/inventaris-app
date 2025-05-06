@@ -13,10 +13,6 @@ class locations extends Model
         'name',
         'description',
     ];
-
-    protected $casts = [
-        'id' => 'uuid',
-    ];
     protected $table = 'locations';
     protected $primaryKey = 'id';
     public function getRouteKeyName()
