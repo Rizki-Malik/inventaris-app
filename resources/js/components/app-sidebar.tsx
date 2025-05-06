@@ -13,6 +13,11 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'Kategori Barang',
+        href: '/categories',
+        icon: Folder,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

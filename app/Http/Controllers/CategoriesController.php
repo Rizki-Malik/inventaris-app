@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\categories;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class CategoriesController extends Controller
     {
         $categories = categories::all();
 
-        return Inertia::render('categories.index', compact('categories'));
+        return Inertia::render('categories/index', compact('categories'));
     }
 
     /**
@@ -22,7 +23,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return Inertia::render('categories.create');
+        return Inertia::render('categories/create');
     }
 
     /**
@@ -45,7 +46,7 @@ class CategoriesController extends Controller
      */
     public function show(categories $categories)
     {
-        return Inertia::render('categories.show', compact('categories'));
+        return Inertia::render('categories/show', compact('categories'));
     }
 
     /**
@@ -53,7 +54,7 @@ class CategoriesController extends Controller
      */
     public function edit(categories $categories)
     {
-        return Inertia::render('categories.edit', compact('categories'));
+        return Inertia::render('categories/edit', compact('categories'));
     }
 
     /**
