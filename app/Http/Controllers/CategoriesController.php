@@ -36,7 +36,7 @@ class CategoriesController extends Controller
             'description' => 'required|string',
         ]);
 
-        categories::create($request->all());
+        Category::create($request->all());
 
         return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
@@ -44,17 +44,17 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $categories)
+    public function show(Category $category)
     {
-        return Inertia::render('categories/show', compact('categories'));
+        return Inertia::render('categories/show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $categories)
+    public function edit(Category $category)
     {
-        return Inertia::render('categories/edit', compact('categories'));
+        return Inertia::render('categories/edit', compact('category'));
     }
 
     /**
@@ -75,9 +75,9 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $categories)
+    public function destroy(Category $category)
     {
-        $categories->delete();
+        $category->delete();
 
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }

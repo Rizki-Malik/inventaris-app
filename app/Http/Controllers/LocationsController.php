@@ -46,7 +46,7 @@ class LocationsController extends Controller
      */
     public function show(Location $location)
     {
-        return Inertia::render('locations/show', compact('locations'));
+        return Inertia::render('locations/show', compact('location'));
     }
 
     /**
@@ -54,7 +54,7 @@ class LocationsController extends Controller
      */
     public function edit(Location $location)
     {
-        return Inertia::render('locations/edit', compact('locations'));
+        return Inertia::render('locations/edit', compact('location'));
     }
 
     /**
