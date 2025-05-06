@@ -140,8 +140,8 @@ export function DataTable<TData, TValue>({
               <tr>
                 <td colSpan={columns.length} className="h-32 text-center">
                   <div className="flex flex-col items-center justify-center text-slate-500 dark:text-gray-400">
-                    <p className="text-lg font-medium">No data available</p>
-                    <p className="text-sm">Try changing your search or filters</p>
+                    <p className="text-lg font-medium">Tidak ada data yang tersedia.</p>
+                    <p className="text-sm">Silakan ubah pencarian atau filter Anda</p>
                   </div>
                 </td>
               </tr>
