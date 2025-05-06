@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
-use App\Models\categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,7 +13,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = categories::all();
+        $categories = Category::all();
 
         return Inertia::render('categories/index', compact('categories'));
     }
@@ -44,7 +44,7 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function show(Category $categories)
     {
         return Inertia::render('categories/show', compact('categories'));
     }
@@ -52,7 +52,7 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(categories $categories)
+    public function edit(Category $categories)
     {
         return Inertia::render('categories/edit', compact('categories'));
     }
@@ -60,14 +60,14 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, categories $categories)
+    public function update(Request $request, Category $category)
     {
         $request->validate([
             'name' => 'required|string|max:100',
             'description' => 'required|string',
         ]);
 
-        $categories->update($request->all());
+        $category->update($request->all());
 
         return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
@@ -75,7 +75,7 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categories $categories)
+    public function destroy(Category $categories)
     {
         $categories->delete();
 
