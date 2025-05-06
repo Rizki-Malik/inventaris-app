@@ -12,7 +12,6 @@ class Item extends Model
         'name',
         'description',
         'location_id',
-        'item_id',
         'category_id',
     ];
     protected $table = 'items';
