@@ -12,7 +12,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = categories::all();
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -20,7 +22,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -28,7 +30,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'description' => 'required|string',
+        ]);
+
+        categories::create($request->all());
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -36,7 +45,7 @@ class CategoriesController extends Controller
      */
     public function show(categories $categories)
     {
-        //
+        return view('categories.show', compact('categories'));
     }
 
     /**
@@ -44,7 +53,7 @@ class CategoriesController extends Controller
      */
     public function edit(categories $categories)
     {
-        //
+        return view('categories.edit', compact('categories'));
     }
 
     /**
@@ -52,7 +61,14 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, categories $categories)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'description' => 'required|string',
+        ]);
+
+        $categories->update($request->all());
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -60,6 +76,8 @@ class CategoriesController extends Controller
      */
     public function destroy(categories $categories)
     {
-        //
+        $categories->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }
