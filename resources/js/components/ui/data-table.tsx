@@ -154,13 +154,13 @@ export function DataTable<TData, TValue>({
       <div className="border-t border-gray-200 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 px-6 py-3">
         <div className="flex flex-col sm:flex-row w-full items-center justify-between gap-4">
           <div className="flex items-center text-sm text-slate-600 dark:text-gray-300">
-             Data {displayedRows > 0 ? (currentPage - 1) * pageSize + 1 : 0} - {Math.min(currentPage * pageSize, totalRows)} of {totalRows} entries
+             Halaman : {displayedRows > 0 ? (currentPage - 1) * pageSize + 1 : 0} - {Math.min(currentPage * pageSize, totalRows)} dari {totalRows} Total data
           </div>
 
           <div className="flex items-center gap-2">
             {/* Page Size Selector */}
             <div className="flex items-center mr-4">
-              <span className="text-sm mr-2 dark:text-gray-300">Rows per page:</span>
+              <span className="text-sm mr-2 dark:text-gray-300">Data per halaman :</span>
               <select
                 value={pageSize}
                 onChange={(e) => {

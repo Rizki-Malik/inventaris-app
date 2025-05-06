@@ -9,19 +9,22 @@ export default function Welcome() {
         <>
             <Head title="Sistem Inventaris Barang">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+                <link href="https://fonts.bunny.net/css?family=inter:400,500,600" rel="stylesheet" />
             </Head>
-            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
-                <header className="mb-6 w-full max-w-[335px] text-sm lg:max-w-4xl">
+            <div className="flex min-h-screen flex-col items-center bg-gradient-to-br from-[#FDFDFC] via-[#FFF8F7] to-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:via-[#1a0a0a] dark:to-[#0a0a0a]">
+                <header className="mb-6 w-full max-w-[1200px]">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <span className="text-xl font-bold">SistemInventaris</span>
+                        <div className="flex items-center gap-2">
+                            <div className="h-6 w-6 bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] rounded-lg" />
+                            <span className="text-xl font-bold bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] bg-clip-text text-transparent">
+                                Inventaris
+                            </span>
                         </div>
-                        <nav className="flex items-center justify-end gap-4">
+                        <nav className="flex items-center gap-4">
                             {auth.user ? (
                                 <Link
                                     href={route('dashboard')}
-                                    className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                    className="rounded-lg px-5 py-2 text-sm font-medium transition-all hover:bg-[#fff5f3] dark:hover:bg-[#1f0a07]"
                                 >
                                     Dashboard
                                 </Link>
@@ -29,13 +32,13 @@ export default function Welcome() {
                                 <>
                                     <Link
                                         href={route('login')}
-                                        className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
+                                        className="rounded-lg px-5 py-2 text-sm font-medium transition-all hover:bg-[#fff5f3] dark:hover:bg-[#1f0a07]"
                                     >
                                         Log in
                                     </Link>
                                     <Link
                                         href={route('register')}
-                                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
+                                        className="rounded-lg bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] px-5 py-2 text-sm font-medium text-white shadow-lg shadow-[#FF4433]/20 transition-all hover:shadow-[#FF4433]/30"
                                     >
                                         Register
                                     </Link>
@@ -44,79 +47,86 @@ export default function Welcome() {
                         </nav>
                     </div>
                 </header>
-                <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
-                    <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row">
-                        <div className="flex-1 rounded-br-lg rounded-bl-lg bg-white p-6 pb-12 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-tl-lg lg:rounded-br-none lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
-                            <h1 className="mb-1 text-2xl font-bold">Sistem Inventaris Barang</h1>
-                            <p className="mb-6 text-[#706f6c] dark:text-[#A1A09A]">
-                                Kelola inventaris barang Anda dengan mudah dan efisien.
+                <div className="flex w-full max-w-[1200px] items-center justify-center lg:grow">
+                    <main className="flex w-full flex-col gap-8 lg:flex-row">
+                        <div className="flex-1 rounded-2xl bg-white p-8 shadow-xl dark:bg-[#161615]">
+                            <h1 className="mb-4 text-4xl font-bold leading-tight">
+                                Kelola Inventaris Barang
                                 <br />
-                                Lacak, monitor, dan analisis semua aset dalam satu platform.
+                                <span className="bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] bg-clip-text text-transparent">
+                                    Lebih Efisien
+                                </span>
+                            </h1>
+                            <p className="mb-8 text-lg text-[#706f6c] dark:text-[#A1A09A]">
+                                Solusi terintegrasi untuk manajemen aset digital dengan analitik real-time
+                                dan kontrol penuh atas inventaris Anda.
                             </p>
-                            <h2 className="mb-2 font-medium">Fitur Utama</h2>
-                            <ul className="mb-8 flex flex-col lg:mb-6">
-                                <li className="relative flex items-center gap-4 py-2 before:absolute before:top-1/2 before:bottom-0 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]">
-                                    <span className="relative bg-white py-1 dark:bg-[#161615]">
-                                        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#e3e3e0] bg-[#FDFDFC] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] dark:border-[#3E3E3A] dark:bg-[#161615]">
-                                            <Clipboard className="h-4 w-4 text-[#f53003] dark:text-[#FF4433]" />
-                                        </span>
-                                    </span>
-                                    <span>
-                                        <strong className="font-medium">Pencatatan Inventaris</strong>
-                                        <p className="text-[#706f6c] dark:text-[#A1A09A]">Catat dan kelola semua barang dengan detail lengkap</p>
-                                    </span>
-                                </li>
-                                <li className="relative flex items-center gap-4 py-2 before:absolute before:top-0 before:bottom-1/2 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:absolute before:top-1/2 before:bottom-0 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]">
-                                    <span className="relative bg-white py-1 dark:bg-[#161615]">
-                                        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#e3e3e0] bg-[#FDFDFC] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] dark:border-[#3E3E3A] dark:bg-[#161615]">
-                                            <Search className="h-4 w-4 text-[#f53003] dark:text-[#FF4433]" />
-                                        </span>
-                                    </span>
-                                    <span>
-                                        <strong className="font-medium">Pencarian Cepat</strong>
-                                        <p className="text-[#706f6c] dark:text-[#A1A09A]">Temukan barang dengan mudah menggunakan fitur pencarian</p>
-                                    </span>
-                                </li>
-                                <li className="relative flex items-center gap-4 py-2 before:absolute before:top-0 before:bottom-1/2 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]">
-                                    <span className="relative bg-white py-1 dark:bg-[#161615]">
-                                        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#e3e3e0] bg-[#FDFDFC] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] dark:border-[#3E3E3A] dark:bg-[#161615]">
-                                            <BarChart2 className="h-4 w-4 text-[#f53003] dark:text-[#FF4433]" />
-                                        </span>
-                                    </span>
-                                    <span>
-                                        <strong className="font-medium">Laporan & Analisis</strong>
-                                        <p className="text-[#706f6c] dark:text-[#A1A09A]">Dapatkan laporan dan analisis untuk pengambilan keputusan</p>
-                                    </span>
-                                </li>
-                            </ul>
-                            <ul className="flex gap-3 text-sm leading-normal">
-                                <li>
-                                    {auth.user ? (
-                                        <Link
-                                            href={route('dashboard')}
-                                            className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
-                                        >
-                                            Masuk ke Dashboard
-                                        </Link>
-                                    ) : (
-                                        <Link
-                                            href={route('register')}
-                                            className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
-                                        >
-                                            Mulai Sekarang
-                                        </Link>
-                                    )}
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="relative -mb-px aspect-[335/376] w-full shrink-0 overflow-hidden rounded-t-lg bg-[#fff2f2] lg:mb-0 lg:-ml-px lg:aspect-auto lg:w-[438px] lg:rounded-t-none lg:rounded-r-lg dark:bg-[#1D0002]">
-                            <div className="flex h-full items-center justify-center">
-                                <Package className="h-32 w-32 text-[#F53003] dark:text-[#F61500]" />
-                                <div className="absolute bottom-4 right-4 text-right">
-                                    <h3 className="text-lg font-bold text-[#1b1b18] dark:text-[#EDEDEC]">Sistem Inventaris</h3>
-                                    <p className="text-sm text-[#706f6c] dark:text-[#A1A09A]">Solusi terbaik untuk manajemen aset</p>
+                            <div className="mb-8 grid gap-6 md:grid-cols-2">
+                                <div className="flex gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF4433] to-[#FF6B3B]">
+                                        <Clipboard className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div>
+                                        <h3 className="mb-1 font-semibold">Pencatatan Digital</h3>
+                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A]">
+                                            Otomatisasi pencatatan dengan sistem terintegrasi
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF4433] to-[#FF6B3B]">
+                                        <Search className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div>
+                                        <h3 className="mb-1 font-semibold">Pencarian Cerdas</h3>
+                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A]">
+                                            Temukan barang dalam sekejap dengan AI-powered search
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF4433] to-[#FF6B3B]">
+                                        <BarChart2 className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div>
+                                        <h3 className="mb-1 font-semibold">Analitik Real-Time</h3>
+                                        <p className="text-sm text-[#706f6c] dark:text-[#A1A09A]">
+                                            Dashboard interaktif dengan visualisasi data lengkap
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="flex gap-4">
+                                {auth.user ? (
+                                    <Link
+                                        href={route('dashboard')}
+                                        className="rounded-lg bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] px-6 py-3 font-medium text-white shadow-lg shadow-[#FF4433]/20 transition-all hover:shadow-[#FF4433]/30"
+                                    >
+                                        Buka Dashboard →
+                                    </Link>
+                                ) : (
+                                    <Link
+                                        href={route('register')}
+                                        className="rounded-lg bg-gradient-to-br from-[#FF4433] to-[#FF6B3B] px-6 py-3 font-medium text-white shadow-lg shadow-[#FF4433]/20 transition-all hover:shadow-[#FF4433]/30"
+                                    >
+                                        Mulai Gratis Sekarang
+                                    </Link>
+                                )}
+                            </div>
+                        </div>
+                        <div className="relative flex w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-[#FFE5E2] to-[#FFF0ED] p-8 lg:w-[500px] dark:from-[#1D0002] dark:to-[#2D0A07]">
+                            <div className="relative z-10 text-center">
+                                <Package className="mx-auto mb-6 h-24 w-24 text-[#FF4433]" />
+                                <div className="rounded-xl bg-white/50 p-6 backdrop-blur-lg dark:bg-[#ffffff08]">
+                                    <h3 className="text-2xl font-bold text-[#1b1b18] dark:text-[#EDEDEC]">
+                                        Kelola Tanpa Ribet
+                                    </h3>
+                                    <p className="text-[#706f6c] dark:text-[#A1A09A]">
+                                        Antarmuka intuitif untuk pengalaman terbaik
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff40] to-[#ffffff00]" />
                         </div>
                     </main>
                 </div>

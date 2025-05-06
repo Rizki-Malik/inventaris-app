@@ -28,6 +28,11 @@ const mainNavItems: NavItem[] = [
         href: '/items',
         icon: Folder,
     },
+    {
+        title: 'Transaksi',
+        href: '/transactions',
+        icon: Folder,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
