@@ -13,10 +13,6 @@ class categories extends Model
         'name',
         'description',
     ];
-
-    protected $casts = [
-        'id' => 'uuid',
-    ];
     protected $table = 'categories';
     protected $primaryKey = 'id';
     public function getRouteKeyName()
