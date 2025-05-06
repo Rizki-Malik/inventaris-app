@@ -23,6 +23,11 @@ const mainNavItems: NavItem[] = [
         href: '/locations',
         icon: Folder,
     },
+    {
+        title: 'Barang',
+        href: '/items',
+        icon: Folder,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

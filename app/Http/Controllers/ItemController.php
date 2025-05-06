@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Category;
+use App\Models\Location;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -14,9 +16,13 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::with(['location', 'category'])->get();
+        $locations = Location::all();
+        $categories = Category::all();
 
         return inertia('items/index', [
             'items' => $items,
+            'locations' => $locations,
+            'categories' => $categories,
         ]);
     }
 
