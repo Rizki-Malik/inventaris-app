@@ -16,13 +16,12 @@ class DashboardController extends Controller
      */
     public function getStats()
     {
-        try {
             $totalItems = Item::count();
             $totalCategories = Category::count();
             $totalLocations = Location::count();
 
             // Menghitung item dengan stok menipis (kurang dari 5)
-            $lowStockItems = Item::where('stock', '<', 5)->count();
+            $lowStockItems = Item::where('quantity', '<', 5)->count();
 
             return response()->json([
                 'totalItems' => $totalItems,
@@ -30,9 +29,6 @@ class DashboardController extends Controller
                 'totalLocations' => $totalLocations,
                 'lowStockItems' => $lowStockItems,
             ]);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch statistics'], 500);
-        }
     }
 
     /**
@@ -70,18 +66,18 @@ class DashboardController extends Controller
         try {
             $monthlyData = DB::table('transactions')
                 ->select(
-                    DB::raw('MONTHNAME(transaction_date) as name'),
-                    DB::raw('SUM(CASE WHEN transaction_type = "in" THEN quantity ELSE 0 END) as masuk'),
-                    DB::raw('SUM(CASE WHEN transaction_type = "out" THEN quantity ELSE 0 END) as keluar')
+                    DB::raw("TO_CHAR(transaction_date, 'Month') as name"),
+                    DB::raw("SUM(CASE WHEN transaction_type = 'in' THEN quantity ELSE 0 END) as masuk"),
+                    DB::raw("SUM(CASE WHEN transaction_type = 'out' THEN quantity ELSE 0 END) as keluar")
                 )
                 ->whereYear('transaction_date', date('Y'))
-                ->groupBy('name', DB::raw('MONTH(transaction_date)')) // Add month number for proper ordering
-                ->orderBy(DB::raw('MONTH(transaction_date)'))
+                ->groupBy('name', DB::raw('EXTRACT(MONTH FROM transaction_date)')) // Add month number for proper ordering
+                ->orderBy(DB::raw('EXTRACT(MONTH FROM transaction_date)'))
                 ->get();
 
             return response()->json($monthlyData);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch monthly transactions'], 500);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Failed to fetch monthly transactions'. $e], 500);
         }
     }
 
